@@ -6,9 +6,11 @@ def dealer(request, name=""):
         d = cards.d
     else:
         d = cards.d_new
+
     context = {
         "name":name,
         'd': d,
+        'card_img': cards.card_img,
     }
     return render(request, "belote/dealer.html", context)
 
