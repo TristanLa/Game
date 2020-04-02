@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -14,9 +13,16 @@
 </head>
 <body>
 <div class="container-fluid">
-    <h1>PAGE TO DISTRIBUTE NEW CARDS</h1>
-    <a class="btn btn-success btn-lg" href="{% url 'dealer' %}">Check new deal</a>
+    <h1>GAME SETUP AND NEW CARDS DEAL</h1>
+    <a class="btn btn-success btn-lg mt-5 mb-5" href="{% url 'dealer' %}">Voir la nouvelle donne</a>
 </div>
+
+    <h5>Vous pouvez changer le nom des joueurs avec ce formulaire au besoin...</h5>
+    <form action="{% url 'newdeal' %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" values="Submit">
+    </form>
 
 
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
