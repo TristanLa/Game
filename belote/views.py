@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from belote import cards
+from belote import cards, forms
 
 def dealer(request, name=""):
     if cards.d:
@@ -22,4 +22,18 @@ def new_deal(request):
     else:
         cards.d_new.clear()
         cards.d = cards.Deal()
-    return render(request, "belote/newdeal.html", {})
+    if request.method == 'POST':
+        form = forms.PlayerForm(request.POST)
+
+        if form.is_valid():
+            cards.p1 = form.cleaned_data["player1_name"]
+            cards.p2 = form.cleaned_data["player2_name"]
+            cards.p3 = form.cleaned_data["player3_name"]
+            cards.p4 = form.cleaned_data["player4_name"]
+    else:
+        form = forms.PlayerForm()
+
+    context = {
+        "form": form,
+    }
+    return render(request, "belote/newdeal.html", context)
