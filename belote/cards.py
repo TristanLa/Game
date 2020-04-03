@@ -23,6 +23,11 @@ class Deck:
             print(str(card))
 
 
+p1 = "Jérôme"
+p2 = "Marie-Françoise"
+p3 = "Baptiste"
+p4 = "Tristan"
+
 def Deal():
     deck = Deck()
     Player1 = []
@@ -30,10 +35,10 @@ def Deal():
     Player3 = []
     Player4 = []
     d = {
-        'Jérôme': Player1,
-        'Marie-Françoise': Player2,
-        'Baptiste': Player3,
-        'Tristan': Player4,
+        p1: Player1,
+        p2: Player2,
+        p3: Player3,
+        p4: Player4,
     }
 
     for i in range(0, 8):
@@ -111,7 +116,4 @@ card_img = {
 
 d = Deal()
 d_new = {}
-
-
-
 
