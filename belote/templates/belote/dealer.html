@@ -15,18 +15,18 @@
 <body>
 <div class="container-fluid">
     {% if name == "" %}
-    <h1>DEALER PAGE</h1>
-    <a class="btn btn-primary btn-lg" href="{% url 'newdeal' %}">Nouvelle donne</a>
-        {% for key, value in d.items %}
-        <h1><a href="{% url 'name' key %}">{{key}}</a></h1>
-            <div class="row">
-                {% for i in value %}
-                    {% for a, b in card_img.items %}
-                        {% if a == i %} <img class="mt-2 mb-2 ml-5" src="{% static b %}" height="90px" width="67px">{% endif %}
+    <h1 class="text-primary">DEALER PAGE</h1>
+            <a class="btn btn-primary btn-lg" href="{% url 'newdeal' %}">Nouvelle donne</a>
+            {% for key, value in d.items %}
+            <h1><a href="{% url 'name' key %}">{{key}}</a></h1>
+                <div class="row">
+                    {% for i in value %}
+                        {% for a, b in card_img.items %}
+                            {% if a == i %} <img class="mt-2 mb-2 ml-5" src="{% static b %}" height="90px" width="67px">{% endif %}
+                        {% endfor %}
                     {% endfor %}
-                {% endfor %}
-            </div>
-        {% endfor %}
+                </div>
+            {% endfor %}
     {% else %}
     <h1>Cartes distribuées à {{name}}</h1>
     <a class="btn btn-secondary btn-lg disabled mb-5" href="{% url 'dealer' %}">Nouvelle donne</a>
