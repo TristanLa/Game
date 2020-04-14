@@ -1,1 +1,1 @@
-web: gunicorn pyblog.wsgi
+web: gunicorn Game.wsgi
