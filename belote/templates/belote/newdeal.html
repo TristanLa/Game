@@ -14,11 +14,11 @@
 <body>
 <div class="container-fluid">
     <h1>GAME SETUP AND NEW CARDS DEAL</h1>
-    <a class="btn btn-success btn-lg mt-5 mb-5" href="{% url 'dealer' %}">Voir la nouvelle donne</a>
+    <a class="btn btn-success btn-lg mt-5 mb-5" href="{% url 'belote' %}">Voir la nouvelle donne</a>
 </div>
 
     <h5>Vous pouvez changer le nom des joueurs avec ce formulaire au besoin...</h5>
-    <form action="{% url 'newdeal' %}" method="post">
+    <form action="{% url 'newdeal-belote' %}" method="post">
     {% csrf_token %}
     {{ form.as_p }}
     <input type="submit" values="Submit">

@@ -63,7 +63,7 @@ card_img = {
     "As de Trèfle": "img/01-trefle.png",
     "Deux de Trèfle": "img/02-trefle.png",
     "Trois de Trèfle": "img/03-trefle.png",
-    "Quatre de Trèfle": "img/04-trefl.png",
+    "Quatre de Trèfle": "img/04-trefle.png",
     "Cinq de Trèfle": "img/05-trefle.png",
     "Six de Trèfle": "img/06-trefle.png",
     "Sept de Trèfle": "img/07-trefle.png",

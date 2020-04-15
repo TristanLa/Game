@@ -16,9 +16,9 @@
 <div class="container-fluid">
     {% if name == "" %}
     <h1 class="text-primary">DEALER PAGE</h1>
-            <a class="btn btn-primary btn-lg" href="{% url 'newdeal' %}">Nouvelle donne</a>
+            <a class="btn btn-primary btn-lg" href="{% url 'newdeal-belote' %}">Nouvelle donne</a>
             {% for key, value in d.items %}
-            <h1><a href="{% url 'name' key %}">{{key}}</a></h1>
+            <h1><a href="{% url 'name-belote' key %}">{{key}}</a></h1>
                 <div class="row">
                     {% for i in value %}
                         {% for a, b in card_img.items %}
@@ -29,13 +29,17 @@
             {% endfor %}
     {% else %}
     <h1>Cartes distribuées à {{name}}</h1>
-    <a class="btn btn-secondary btn-lg disabled mb-5" href="{% url 'dealer' %}">Nouvelle donne</a>
+    <a class="btn btn-secondary btn-lg disabled mb-5" href="{% url 'newdeal-belote' %}">Nouvelle donne</a>
         {% for key, value in d.items %}
             {% if key == name %}
             <div class="row bg-success">
                 {% for i in value %}
                     {% for a, b in card_img.items %}
-                        {% if a == i %} <img class="mt-5 mb-5 ml-5" src="{% static b %}" height="160px" width="120px">{% endif %}
+                        {% if a == i %}
+                                <div class="col">
+                                    <img class="mt-5 mb-5 ml-3 mr-1" src="{% static b %}" height="160px" width="120px">
+                                </div>
+                        {% endif %}
                     {% endfor %}
                 {% endfor %}
             </div>
