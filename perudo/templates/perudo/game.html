@@ -1,0 +1,58 @@
+{% extends 'home.html' %}
+{% load static %}
+
+{% block title %} Perudo {% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="text-center">
+        <h1>Votre partie en cours</h1>
+        <div class="row mt-3 justify-content-center">
+            <div class="col-4 border border-light bg-light">
+                <p class="text-muted mt-3">Nombre de participants : {{player_number}}</p>
+                <p class="text-muted">Nombre de dés restants dans la partie : {{dice_number}}</p>
+                <p class="text-danger">Nombre de dés qu'il te reste : {{player_dices}}</p>
+            </div>
+        </div>
+    </div>
+
+    <h4>Renseignez les valeurs de vos dés</h4>
+    <div text-center>
+        <div class="row justify-content-center">
+                {% for i in range %}
+                    <div class="col-2">
+                        <form>
+                            {% csrf_token %}
+                            {{ diceform }}
+                            <button type="submit" name="win_btn" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                {% endfor %}
+        </div>
+    </div>
+
+    <h2 class="mt-5">Les deux questions sur le prono qui est fait (valeur du dés) et (nombre de dés avec cette valeur)</h2>
+    <div class="row">
+        <div class="col-4">
+            <form method="post">
+                {% csrf_token %}
+                {{winform}}
+                <button type="submit" name="win_btn" class="btn btn-success btn-lg mt-5">Je continue sans avoir perdu</button>
+            </form>
+        </div>
+        <div class="col-4">
+            <form method="post">
+                {% csrf_token %}
+                {{loseform}}
+                <button type="submit" name="lose_btn" value="Submit" class="btn btn-danger btn-lg mt-5">Je continue et j'ai perdu un dé</button>
+            </form>
+
+        </div>
+        <div class="col-4">
+            <a class="btn btn-secondary btn-lg mt-5" href="{% url 'newgame' %}">Je recommence une nouvelle partie</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+

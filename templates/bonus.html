@@ -1,0 +1,49 @@
+{% extends 'home.html' %}
+{% load static %}
+
+{% block style %}
+        #jeu{
+            width: 400px;
+            height: 400px;
+            border: 2px black solid;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .fond{
+            margin-bottom:-5px;
+            z-index: 10;
+            position: relative;
+        }
+
+        #vj{
+            z-index: 100;
+            position: absolute;
+            top: 10px;
+            left: 48px;
+        }
+
+        #vr{
+            z-index: 80;
+            position: absolute;
+            top: -200px;
+            left: 0px;
+        }
+{% endblock %}
+
+{% block content %}
+Collisions : <span id="info">0</span>
+
+<div id="jeu">
+  <img id="fond1" class="fond" src="{% static 'img/route.png' %}">
+  <img id="fond2" class="fond" src="{% static 'img/route.png' %}">
+  <img id="vj" src="{% static 'img/vj.png' %}"> <!-- La voiture jaune -->
+  <img id="vr" src="{% static 'img/vr.png' %}"> <!-- La voiture rouge -->
+</div>
+
+<a class="btn btn-secondary btn-lg mt-5 mb-5" href="{% url 'index' %}"> <- back home </a>
+{% endblock %}
+
+{% block javascript %}
+<script src="{% static 'js/bonus.js'%}"></script>
+{% endblock javascript %}

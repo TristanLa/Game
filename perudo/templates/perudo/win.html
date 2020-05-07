@@ -1,0 +1,11 @@
+{% extends 'home.html' %}
+{% load static %}
+
+{% block title %} Perudo {% endblock %}
+
+{% block content %}
+<div class="container-fluid text-center">
+    <h1 class="text-success display-1"> Youhouuuuuu ! You won :D </h1>
+    <a class="btn bg-primary btn-lg" href="{% url 'newgame' %}">Go for a new victory</a>
+</div>
+{% endblock %}

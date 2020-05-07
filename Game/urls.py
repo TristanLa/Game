@@ -8,4 +8,5 @@ urlpatterns = [
     path('perudo/', include("perudo.urls")),
     path('toc/', include("toc.urls")),
     path('', views.home, name="index"),
+    path('bonus/', views.bonus, name="bonus"),
 ]

@@ -1,0 +1,15 @@
+{% extends 'home.html' %}
+{% load static %}
+
+{% block title %} Perudo {% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <h1>Paramètres de la partie</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ playersform.as_p }}
+        <button type="submit" class="btn bg-success btn-lg">Lancer la partie</button>
+    </form>
+</div>
+{% endblock %}

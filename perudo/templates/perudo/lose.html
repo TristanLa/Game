@@ -1,0 +1,12 @@
+{% extends 'home.html' %}
+{% load static %}
+
+{% block title %} Perudo {% endblock %}
+
+{% block content %}
+<div class="container-fluid text-center">
+    <h1 class="text-danger display-1"> Ooooowh ! You lost :( </h1>
+    <a class="btn bg-secondary btn-lg" href="{% url 'newgame' %}">Try again ?</a>
+</div>
+{% endblock %}
+
